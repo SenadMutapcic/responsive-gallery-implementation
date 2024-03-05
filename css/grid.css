@@ -1,0 +1,239 @@
+/* //// ROOT VARIABLES  */
+:root {
+  --clr-img-bg: #87cfebe1;
+  --clr-img-title-bg: #413d3db9;
+
+  --clr-text: #100101ed;
+  --clr-img-title-text: #fff;
+
+  --margin-inline: 4em;
+}
+
+/* andy-bell css reset https://andy-bell.co.uk/a-modern-css-reset/ */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* //// HEADER + MAIN  */
+body {
+  font-size: clamp(1.375rem, 1.2439rem + 0.2049vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 3em;
+}
+
+h1 {
+  font-size: 3rem;
+  padding-block-start: 1em;
+}
+
+.grid-container {
+  display: grid;
+  row-gap: 3em;
+  margin-inline: var(--margin-inline);
+}
+
+.card-grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3em;
+}
+
+img {
+  background: var(--clr-img-bg);
+  object-fit: cover;
+  border-radius: 0.75em 0.75em 0px 0px;
+}
+
+.img-title {
+  border-radius: 0px 0px 0.75em 0.75em;
+  background: var(--clr-img-title-bg);
+  padding-block: 0.5em;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* //// FOOTER  */
+footer {
+  background: var(--clr-img-bg);
+  text-align: center;
+  width: 100%;
+  min-height: 10vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TRANSITION FOR BREAKPOINTS */
+body,
+h1,
+.grid-container,
+.card-grid-container,
+footer,
+.img-title {
+    transition: all 0.5s linear; /* You can adjust the duration and timing function as needed */
+}
+
+/* //// MEDIA QUERIES  */
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  body {
+    /* testing */
+    /* background-color: red; */
+
+    /* MIN FONT SIZE 1REM BETWEEN 0.75rem + 1.25vw MAX 1.125REM */
+    font-size: clamp(1rem, 0.75rem + 1.25vw, 1.125rem);
+  }
+
+  .grid-container {
+    margin-inline: calc(var(--margin-inline) - 3em);
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .card-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    /* testing */
+    /* background-color: yellow; */
+
+    font-size: clamp(1.125rem, 1.0203rem + 0.3484vw, 1.1875rem);
+  }
+
+  .grid-container {
+    margin-inline: calc(var(--margin-inline) - 3em);
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .card-grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    /* testing */
+    /* background-color: blue; */
+
+    font-size: clamp(1.1875rem, 0.625rem + 1.1719vw, 1.375rem);
+  }
+
+  .grid-container {
+    margin-inline: calc(var(--margin-inline) - 2em);
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  .card-grid-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  body {
+    /* testing */
+    /* background-color: rgb(109, 232, 109); */
+
+    font-size: clamp(1.125rem, 0.6225rem + 0.7843vw, 1.25rem);
+  }
+
+  .grid-container {
+    margin-inline: calc(var(--margin-inline) - 1em);
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  .card-grid-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
